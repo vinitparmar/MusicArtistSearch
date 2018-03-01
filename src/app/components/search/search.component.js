@@ -15,10 +15,11 @@ var SearchComponent = (function () {
         this._spotifyService = _spotifyService;
     }
     SearchComponent.prototype.searchMusic = function () {
+        var _this = this;
         this._spotifyService.searchMusic(this.searchStr).subscribe(function (res) {
-            console.log(res);
+            //console.log(res)
+            _this.searchRes = res.artists.items;
         });
-        console.log("searchStr.." + this.searchStr);
     };
     return SearchComponent;
 }());
